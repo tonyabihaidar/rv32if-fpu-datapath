@@ -1,10 +1,8 @@
 # RV32IF Datapath Design with Floating Point Unit (FPU)
 
 **Course**: EECE 321 – Computer Organization  
-**Institution**: American University of Beirut  
 **Professor**: Dr. Mazen Saghir  
 **Team Members**: Serena Stephan, Tony Abi Haidar, Joud Senan  
-**Date**: April 27, 2025
 
 ---
 
@@ -20,7 +18,6 @@ This project extends the RV32I single-cycle datapath by integrating a **Floating
 - **Vivado Text Editor**: Code editing
 - **Vivado XSim**: Simulation
 - **Venus Simulator**: Assembly compilation
-- **ChatGPT**: Testbench generation
 
 ---
 
@@ -64,35 +61,6 @@ This project extends the RV32I single-cycle datapath by integrating a **Floating
 
 ---
 
-## 🧪 Test Cases & Results
-
-| Operation | Inputs | Output |
-|----------|--------|--------|
-| Addition | 1.1 + 1.15 | `40800000` |
-| Subtraction | 5.0 - 2.5 | `40200000` |
-| Multiplication | 3.0 * 2.0 | `40c00000` |
-| Min | 1.5, 2.5 | `3fc00000` |
-| Max | 2.0, 2.5 | `40200000` |
-| Equal | 3.25 == 3.25 | `1` |
-| Less Than | 1.0 < 1.5 | `1` |
-| Less Than or Equal | 2.5 <= 2.5 | `1` |
-| +0.0 + +0.0 | — | `00000000` |
-| -0.0 + -0.0 | — | `80000000` |
-| +Inf + +Inf | — | `7f800000` |
-| +Inf + -Inf | — | `7fc00000` |
-| NaN + 2.0 | — | `7fc00000` |
-| 0 * 0 | — | `00000000` |
-| Inf * 0 | — | `7fc00000` |
-| +0.0 == -0.0 | — | `1` |
-| Tiny Add | 1.1 + 1.15 | `3fa00000` |
-| Tiny Sub | — | `2f000000` |
-| Tiny Mul | 0.7 * 1.2 | `3f570a3d` |
-| Min (-0.2, -0.5) | — | `bf000000` |
-| Max (1e-7, -1e-7) | — | `33d6bf95` |
-| LE (0.04 <= 0.0399999) | — | `0` |
-
----
-
 ## 📈 Simulation & Verification
 
 - Verified correct FPU operation via:
@@ -127,15 +95,6 @@ This project extends the RV32I single-cycle datapath by integrating a **Floating
 
 - Inputs: `clk`, `rst_n`
 - Manages full datapath, memory access, branching, and both ALU/FPU logic
-
----
-
-## 🧠 Team Contributions
-
-- **Joud Senan**: `control_unit.v`, `archer_rv32if.v`, report documentation
-- **Serena Stephan**: `float_alu` design, datapath diagram
-- **Tony Abi Haidar**: Assembly test programs, `archerdefs.v`, `float_regfile.v`
-- **Group Effort**: Testbenches, integration, and debugging
 
 ---
 
